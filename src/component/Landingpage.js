@@ -1,104 +1,40 @@
-import * as React from "react";
+import React, { useEffect } from 'react';
+import NavItem from './NavItem';
 import backgroundImage from '../assets/images/background.jpg';
 
 function LandingPage() {
+  useEffect(() => {
+    // Disable scrolling when this component is mounted
+    document.body.style.overflow = 'hidden';
+
+    // Enable scrolling again when this component is unmounted
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
-        `}
-      </style>
+    <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
+      <NavItem />
       <img
         loading="lazy"
         src={backgroundImage}
-        style={{ objectFit: 'cover', width: '100%', height: '100%', position: 'absolute', inset: 0 }}
-        alt="Background"
-      />
-      <header
-        className="header"
         style={{
-          position: 'sticky',
+          objectFit: 'cover',
+          width: '100%',
+          height: '100vh', // Ensure it covers the viewport height
+          position: 'fixed', // Fix the image in place
           top: 0,
           left: 0,
-          width: '100%',
-          height: '80px',
-          backgroundColor: '#000000',
-          border: '1px solid #000000',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0 20px',
-          boxSizing: 'border-box',
-          zIndex: 2, // Ensure it is above the background
-          justifyContent: 'center',
+          zIndex: -1, // Place it behind other content
         }}
-      >
-        <h1
-          style={{
-            color: '#ff2121',
-            fontSize: '34px',
-            fontWeight: '400',
-            letterSpacing: '0.25px',
-            fontFamily: '"Rammetto One", sans-serif',
-            margin: '0',
-            textAlign: 'center',
-            position: 'absolute',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 1,
-          }}
-        >
-          RAM MIRYALA
-        </h1>
-        <button
-          style={{
-            padding: '10px 20px',
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-            backgroundColor: '#000000', // Black background
-            border: '2px solid #ff2121', // Border color
-            color: '#ff2121', // Font color
-            whiteSpace: 'nowrap',
-            position: 'absolute',
-            right: '20px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 2,
-          }}
-        >
-          Join community
-        </button>
-      </header>
-      <nav
-        className="nav-item"
-        style={{
-          position: 'fixed',
-          top: '80px', // Adjusted from top of viewport
-          left: '50%',
-          transform: 'translateX(-50%)', // Center horizontally
-          width: '1040px',
-          height: '88px',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '15px 20px',
-          gap: '0px',
-          justifyContent: 'space-between',
-          backgroundColor: 'rgba(0, 0, 0, 0.4)', // Semi-transparent background
-          opacity: '1',
-          zIndex: 2, // Ensure it is above the background
-        }}
-      >
-        <div style={{ color: 'white' }}>Music</div>
-        <div style={{ color: 'white' }}>About</div>
-        <div style={{ color: 'white' }}>Events</div>
-        <div style={{ color: 'white' }}>Shop</div>
-        <div style={{ color: 'white' }}>Gallery</div>
-      </nav>
+        alt="Background"
+      />
       <div
         className="upcoming-event"
         style={{
           position: 'absolute',
-          top: '680px', // Adjust this value to ensure it's below the nav and header
+          top: '600px', // Adjust this value as needed
           left: '50%',
           transform: 'translateX(-50%)',
           width: '1000px',
