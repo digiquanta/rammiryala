@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/rammiryala/static/js/main.1ccbdba7.js",
-    "static/js/453.88c4f132.chunk.js": "/rammiryala/static/js/453.88c4f132.chunk.js",
-    "static/media/background.jpg": "/rammiryala/static/media/background.f3cd2e3f6c8227c09526.jpg",
-    "static/media/Ram.jpg": "/rammiryala/static/media/Ram.d35910d801ef4b764ea1.jpg",
-    "static/media/mattini.jpg": "/rammiryala/static/media/mattini.d11a7fcfe1cd315efd87.jpg",
-    "static/media/janganmana.jpg": "/rammiryala/static/media/janganmana.7ebc5cf1b7517dd7860d.jpg",
-    "static/media/alai.jpg": "/rammiryala/static/media/alai.740103e7d902feffe29b.jpg",
-    "index.html": "/rammiryala/index.html",
-    "main.1ccbdba7.js.map": "/rammiryala/static/js/main.1ccbdba7.js.map",
-    "453.88c4f132.chunk.js.map": "/rammiryala/static/js/453.88c4f132.chunk.js.map"
+    "main.js": "/static/js/main.85229cca.js",
+    "static/js/453.88c4f132.chunk.js": "/static/js/453.88c4f132.chunk.js",
+    "static/media/background.jpg": "/static/media/background.f3cd2e3f6c8227c09526.jpg",
+    "static/media/Ram.jpg": "/static/media/Ram.d35910d801ef4b764ea1.jpg",
+    "static/media/mattini.jpg": "/static/media/mattini.d11a7fcfe1cd315efd87.jpg",
+    "static/media/janganmana.jpg": "/static/media/janganmana.7ebc5cf1b7517dd7860d.jpg",
+    "static/media/alai.jpg": "/static/media/alai.740103e7d902feffe29b.jpg",
+    "index.html": "/index.html",
+    "main.85229cca.js.map": "/static/js/main.85229cca.js.map",
+    "453.88c4f132.chunk.js.map": "/static/js/453.88c4f132.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.1ccbdba7.js"
+    "static/js/main.85229cca.js"
   ]
 }
