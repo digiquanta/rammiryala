@@ -1,20 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import NavItem from './NavItem';
 import backgroundImage from '../assets/images/background.jpg';
+import Header from './Header';
+import MusicL from './musicl'; // Import the MusicL component
+import About from './about';
+import EventsL from './EventsL';
 
-function LandingPage() {
-  useEffect(() => {
-    // Disable scrolling when this component is mounted
-    document.body.style.overflow = 'hidden';
 
-    // Enable scrolling again when this component is unmounted
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
-
+const LandingPage = () => {
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', overflowY: 'auto', overflowX: 'hidden' }}>
+      <Header />
       <NavItem />
       <img
         loading="lazy"
@@ -22,11 +18,11 @@ function LandingPage() {
         style={{
           objectFit: 'cover',
           width: '100%',
-          height: '100vh', // Ensure it covers the viewport height
-          position: 'fixed', // Fix the image in place
+          height: '100vh',
+          position: 'fixed',
           top: 0,
           left: 0,
-          zIndex: -1, // Place it behind other content
+          zIndex: -1,
         }}
         alt="Background"
       />
@@ -34,15 +30,16 @@ function LandingPage() {
         className="upcoming-event"
         style={{
           position: 'absolute',
-          top: '600px', // Adjust this value as needed
+          top: '794px',
           left: '50%',
           transform: 'translateX(-50%)',
           width: '1000px',
+          maxWidth: '100%',
           padding: '20px',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
           color: 'white',
           textAlign: 'center',
-          zIndex: 1, // Ensure it is above the background
+          zIndex: 1,
         }}
       >
         <div
@@ -74,8 +71,14 @@ function LandingPage() {
           </div>
         </div>
       </div>
+      <div style={{ position: 'relative', marginTop: '100vh', zIndex: 2 }}>
+        <MusicL /> {/* Add MusicL component here */}
+        <About />
+        <EventsL />
+       
+      </div>
     </div>
   );
-}
+};
 
 export default LandingPage;

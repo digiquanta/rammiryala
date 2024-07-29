@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -40,24 +41,26 @@ const Header = () => {
         >
           RAM MIRYALA
         </h1>
-        <button
-          style={{
-            padding: '10px 20px',
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-            backgroundColor: '#000000',
-            border: '2px solid #ff2121',
-            color: '#ff2121',
-            whiteSpace: 'nowrap',
-            position: 'absolute',
-            right: '20px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: '2',
-          }}
-        >
-          Join community
-        </button>
+        <Link to="/Joincommunity">
+          <button
+            style={{
+              padding: '10px 20px',
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              backgroundColor: '#000000',
+              border: '2px solid #ff2121',
+              color: '#ff2121',
+              whiteSpace: 'nowrap',
+              position: 'absolute',
+              right: '20px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              zIndex: '2',
+            }}
+          >
+            Join Community
+          </button>
+        </Link>
       </header>
     </div>
   );

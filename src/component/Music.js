@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import images from './ImageImport';
 import NavItem from './NavItem';
 
-
 const musicData = [
   {
     id: 1,
@@ -81,62 +80,63 @@ const MusicComponent = () => {
   };
 
   return (
-    
-    <div style={{ backgroundColor: '#000000', padding: '20px' }}>
-      <NavItem></NavItem>
-      {musicData.map((item, index) => (
-        <div
-          key={item.id}
-          ref={(el) => (sectionRefs.current[index] = el)}
-          onMouseEnter={() => handleMouseEnter(index)}
-          onMouseLeave={handleMouseLeave}
-          style={hoveredId === index ? expandedSectionStyle : sectionStyle}
-        >
-          <img
-            loading="lazy"
-            src={images[item.imageKey]} // Use the imported image
-            style={{
-              width: '150px',
-              height: '150px',
-              objectFit: 'cover',
-            }}
-            alt={item.title}
-          />
-          <div className="flex flex-col flex-grow">
-            <div className="text-3xl tracking-normal" style={{ color: '#FF2121' }}>
-              {item.title}
-            </div>
-            <div className="text-xl tracking-normal leading-7" style={{ color: '#F1D5AE', marginTop: '8px' }}>
-              {item.subtitle}
-            </div>
-            <div className="flex gap-4" style={{ marginTop: '16px' }}>
-              {item.icons.map((iconSrc, iconIndex) => (
-                <img
-                  key={iconIndex}
-                  loading="lazy"
-                  src={iconSrc}
-                  style={{
-                    width: '24px',
-                    height: '24px',
-                    objectFit: 'contain',
-                  }}
-                  alt={`icon-${iconIndex}`}
-                />
-              ))}
-            </div>
-            {hoveredId === index && item.credits && (
-              <div className="mt-4 text-base tracking-normal leading-7" style={{ color: '#F1D5AE' }}>
-                {item.credits.split('\n').map((line, lineIndex) => (
-                  <React.Fragment key={lineIndex}>
-                    {line}
-                    <br />
-                  </React.Fragment>
+    <div style={{ backgroundColor: '#000000', padding: '20px', paddingTop: '198px' }}>
+      <NavItem />
+      <div style={{ marginTop: '20px' }}>
+        {musicData.map((item, index) => (
+          <div
+            key={item.id}
+            ref={(el) => (sectionRefs.current[index] = el)}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            style={hoveredId === index ? expandedSectionStyle : sectionStyle}
+          >
+            <img
+              loading="lazy"
+              src={images[item.imageKey]} // Ensure image is imported correctly
+              style={{
+                width: '150px',
+                height: '150px',
+                objectFit: 'cover',
+              }}
+              alt={item.title}
+            />
+            <div style={{ flex: 1 }}>
+              <div className="text-3xl tracking-normal" style={{ color: '#FF2121' }}>
+                {item.title}
+              </div>
+              <div className="text-xl tracking-normal leading-7" style={{ color: '#F1D5AE', marginTop: '8px' }}>
+                {item.subtitle}
+              </div>
+              <div className="flex gap-4" style={{ marginTop: '16px' }}>
+                {item.icons.map((iconSrc, iconIndex) => (
+                  <img
+                    key={iconIndex}
+                    loading="lazy"
+                    src={iconSrc}
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      objectFit: 'contain',
+                    }}
+                    alt={`icon-${iconIndex}`}
+                  />
                 ))}
               </div>
-            )}
+              {hoveredId === index && item.credits && (
+                <div className="mt-4 text-base tracking-normal leading-7" style={{ color: '#F1D5AE' }}>
+                  {item.credits.split('\n').map((line, lineIndex) => (
+                    <React.Fragment key={lineIndex}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

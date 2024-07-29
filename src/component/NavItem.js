@@ -3,30 +3,35 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavWrapper = styled.nav`
-  position: sticky;
-  top: 80px; /* Adjust if header height changes */
-  left: 0;
-  width: 100%;
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1040px;
   height: 88px;
   display: flex;
   align-items: center;
   padding: 15px 20px;
-  gap: 10px;
-  justify-content: space-around;
-  background-color: rgba(0, 0, 0, 0.4);
-  opacity: 1;
-  z-index: 2;
+  gap: 0px;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.4); /* Ensure this has enough contrast */
+  opacity: 1; /* Ensure this is visible */
+  z-index: 9999; /* High z-index to overlay on other elements */
 `;
 
 const NavLink = styled(Link)`
   padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
+  font-family: Manrope, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 38.25px;
+  letter-spacing: 0.0025em;
   color: ${({ isActive }) => (isActive ? '#ffffff' : '#ff2121')};
   background-color: ${({ isActive }) => (isActive ? '#000000' : 'transparent')};
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: left;
 `;
 
 const NavItem = () => {
