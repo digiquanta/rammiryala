@@ -1,28 +1,20 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'production', // or 'development' depending on your needs
   entry: './src/index.js',
   output: {
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              context: 'src',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -31,9 +23,13 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
     ],
   },
-  resolve: {
-    extensions: ['.js', '.jsx'],
+  devServer: {
+    historyApiFallback: true,
   },
 };
