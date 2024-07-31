@@ -1,33 +1,52 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LandingPage from './component/Landingpage';
-import MusicPage from './component/Music';
-import About from './component/about';
-import Event from './component/Event';
-// import ShopPage from './component/ShopPage';
-// import GalleryPage from './component/GalleryPage';
-import JoinCommunity from './component/Joincommunity';
+import { useEffect } from "react";
+import {
+  Routes,
+  Route,
+  useNavigationType,
+  useLocation,
+} from "react-router-dom";
+import Desktop from "./pages/Desktop";
 
 function App() {
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const action = useNavigationType();
+  const location = useLocation();
+  const pathname = location.pathname;
 
-  const handleClosePopup = () => setIsPopupVisible(false);
+  useEffect(() => {
+    if (action !== "POP") {
+      window.scrollTo(0, 0);
+    }
+  }, [action, pathname]);
+
+  useEffect(() => {
+    let title = "";
+    let metaDescription = "";
+
+    switch (pathname) {
+      case "/":
+        title = "";
+        metaDescription = "";
+        break;
+    }
+
+    if (title) {
+      document.title = title;
+    }
+
+    if (metaDescription) {
+      const metaDescriptionTag = document.querySelector(
+        'head > meta[name="description"]'
+      );
+      if (metaDescriptionTag) {
+        metaDescriptionTag.content = metaDescription;
+      }
+    }
+  }, [pathname]);
 
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route index element={<LandingPage />} />
-          <Route path="music" element={<MusicPage />} />
-          <Route path="about" element={<About />} />
-          <Route path="events" element={<Event />} />
-          {/*<Route path="shop" element={<ShopPage />} />
-          <Route path="gallery" element={<GalleryPage />} /> */}
-        </Routes>
-        {isPopupVisible && <JoinCommunity isVisible={isPopupVisible} onClose={handleClosePopup} />}
-      </div>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Desktop />} />
+    </Routes>
   );
 }
-
 export default App;
