@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LandingPage from './component/Landingpage';
+import Layout from './component/Layout';
 import MusicPage from './component/Music';
 import About from './component/about';
 import Event from './component/Event';

@@ -1,4 +1,5 @@
 {
+  "homepage": "https://digiquanta.github.io/rammiryala",
   "name": "rammiryala",
   "version": "0.1.0",
   "private": true,
@@ -14,8 +15,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    // "build": "react-scripts build",
+    "build": "webpack",
+    "build-github": "HASH_ROUTER=true webpack",
+    "serve": "webpack serve"
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -36,8 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
